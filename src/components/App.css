@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.video {
+  height: auto;
+  width: 100%;
+  max-width: 920px;
+  border-radius: 15px;
+}
