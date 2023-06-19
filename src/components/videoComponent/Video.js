@@ -1,5 +1,5 @@
 import { Grid, Typography } from '@mui/material';
-import video from './video/day_in_the_life.mp4'
+import video from '../../video/day_in_the_life.mp4'
 
 const Video = () => {
     return(
@@ -10,7 +10,7 @@ const Video = () => {
                 <video controls className='video'>
                     <source src={video} type="video/mp4"/>
                 </video>
-                <img src='./video/abgabe.png' alt=''/>
+                <img src='../../video/abgabe.png' alt=''/>
                 </Grid>
             </Grid>
         </>

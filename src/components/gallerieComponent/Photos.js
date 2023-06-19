@@ -98,7 +98,13 @@ const Photos = () => {
                 {imageKeys.map((imageKey, index) => {
                     const image = images(imageKey)
                     return (<ImageListItem key={image} sx={{
-                            cursor: 'pointer'
+                        transition: 'transform 0.5s', // Smooth transition effect
+                        '&:hover': {
+                            fontSize: 32, // Increased size of the icon when hovered
+                            transform: 'scale(1.1)', // Scale up the icon by 20%
+                            cursor: 'pointer',
+                            zIndex: 1
+                        }
                         }}>
                             <img
                                 src={image}
