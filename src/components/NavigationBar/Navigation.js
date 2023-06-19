@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     Multi media contents

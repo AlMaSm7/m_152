@@ -18,7 +18,7 @@ const Photos = () => {
     const [imagesSrc, setImagesSrc] = useState([])
     const [intervalId, setIntervalId] = useState(0)
     const [selectedIndex, setSelectedIndex] = useState(0)
-    const [selectedDiscription, setSelectedDiscription] = useState('')
+    const [selectedDescription, setSelectedDescription] = useState('')
     const autoPlayRef = useRef()
 
     useEffect(() => {
@@ -60,12 +60,12 @@ const Photos = () => {
             console.log("changing to next image:  " + imagesSrc[index + 1])
             setSelectedImage(imagesSrc[index + 1])
             setSelectedIndex(index + 1)
-            setSelectedDiscription(descriptionsImages[index + 1])
+            setSelectedDescription(descriptionsImages[index + 1])
         } else {
             console.log("Changing to first image ...")
             setSelectedImage(imagesSrc[0])
             setSelectedIndex(0)
-            setSelectedDiscription(descriptionsImages[0])
+            setSelectedDescription(descriptionsImages[0])
         }
         runCarousel()
     }
@@ -75,11 +75,11 @@ const Photos = () => {
         if (index === -1 || index === 0) {
             setSelectedImage(imagesSrc[imagesSrc.length - 1])
             setSelectedIndex(imagesSrc.length - 1)
-            setSelectedDiscription(descriptionsImages[index - 1])
+            setSelectedDescription(descriptionsImages[index - 1])
         } else {
             setSelectedImage(imagesSrc[index - 1])
             setSelectedIndex(index - 1)
-            setSelectedDiscription(descriptionsImages[index - 1])
+            setSelectedDescription(descriptionsImages[index - 1])
         }
         runCarousel()
     }
@@ -87,14 +87,14 @@ const Photos = () => {
     const showImage = (image, descriptionIndex) => {
         handleOpen()
         setSelectedImage(image)
-        setSelectedDiscription(descriptionsImages[descriptionIndex])
+        setSelectedDescription(descriptionsImages[descriptionIndex])
         let index = imagesSrc.indexOf(image)
         setSelectedIndex(index + 1)
         console.log(progressValue)
     }
     return (<>
-            <Typography variant="h1" color='white'>Photos</Typography>
-            <ImageList sx={{borderRadius: '5px'}} variant='woven' cols={3} gap={8}>
+            <Typography variant="h1" color='white' sx={{marginBottom: '40px'}}>Photos</Typography>
+            <ImageList sx={{borderRadius: '5px', overflowX: 'hidden', overflowY: 'hidden'}} variant='woven' cols={3} gap={8}>
                 {imageKeys.map((imageKey, index) => {
                     const image = images(imageKey)
                     return (<ImageListItem key={image} sx={{
@@ -104,7 +104,8 @@ const Photos = () => {
                             transform: 'scale(1.1)', // Scale up the icon by 20%
                             cursor: 'pointer',
                             zIndex: 1
-                        }
+                        },
+
                         }}>
                             <img
                                 src={image}
@@ -144,7 +145,7 @@ const Photos = () => {
                                 }} onClick={handleBackward}/>
                             </Grid>
                             <Grid item xs={10} container alignItems='center' justifyContent='center'
-                                  style={{height: '70vh', width: '50vh'}}>
+                                  style={{height: '70vh', width: '40vh'}}>
                                 <img src={selectedImage} alt="Modal Image"
                                      style={{maxWidth: '100%', maxHeight: '100%', objectFit: 'contain'}}/>
                             </Grid>
@@ -171,7 +172,7 @@ const Photos = () => {
                             <Grid xs={8} item sx={{width: '80%'}}>
                                 <Typography variant='subtitle1' sx={{
                                     color: 'white', textAlign: 'center', paddingBottom: '20px', fontSize: '20px'
-                                }}>{selectedDiscription}</Typography>
+                                }}>{selectedDescription}</Typography>
                             </Grid>
                         </Grid>
                     </div>

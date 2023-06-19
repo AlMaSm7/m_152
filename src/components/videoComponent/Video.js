@@ -5,7 +5,7 @@ const Video = () => {
     return(
         <>
             <Typography variant='h1' color='white'>Video</Typography>
-            <Grid container>
+            <Grid container sx={{overflowY: 'hidden'}}>
                 <Grid item xs={12}>
                 <video controls className='video'>
                     <source src={video} type="video/mp4"/>
